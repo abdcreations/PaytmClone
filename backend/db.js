@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const URL = ""
+const URL = "mongodb+srv://abhineetdeepbksc:abhineetdeepbksc@cluster0.trbpdcz.mongodb.net/user"
 mongoose.connect(URL).then(() => console.log("connected"));
 
 
@@ -33,7 +33,22 @@ const userSchema = new mongoose.Schema({
     }
 });
 
+const accountSchema = new mongoose.Schema({
+    userId : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'User',
+        required : true
+    },
+    balance : {
+        type : Number,
+        required : true
+    }
+})
+
 const User = mongoose.model('User',userSchema);
+const Account = mongoose.model('Account',accountSchema);
+
 module.exports = {
-    User
+    User,
+    Account
 };
