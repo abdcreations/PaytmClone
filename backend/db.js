@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const URL = "mongodb+srv://abhineetdeepbksc:abhineetdeepbksc@cluster0.trbpdcz.mongodb.net/user"
+const URL = ""
 mongoose.connect(URL).then(() => console.log("connected"));
 
 
@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
         trim : true,
         lowerCase : true,
         minLength : 3, 
-        maxLength : 10
+        maxLength : 50
     },
     password: {
         type : String,
